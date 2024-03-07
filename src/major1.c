@@ -5,7 +5,7 @@
 #define EXIT_MSG "Exitting...."
 #define ERROR_INVALID_MENU_OPTION_MSG "Error: Invalid menu option. Please try again."
 #define ERROR_INVALID_INPUT_MSG "Error: Invalid input. Please enter a valid number.."
-uint32_t getUnsignedInt(const char* prompt)
+uint32_t getUnsignedInt32(const char* prompt)
 {
     uint32_t value;
     while (TRUE)
@@ -34,36 +34,36 @@ int main()
         printf("(3) Rotate-right\n");
         printf("(4) Parity\n");
         printf("(5) EXIT\n");
-        uint32_t menuOption = getUnsignedInt(NULL);
+        uint32_t menuOption = getUnsignedInt32(NULL);
         uint32_t value = 0;
         switch (menuOption)
         {
         case 1:
         {
-            value = getUnsignedInt(MAIN_PROMPT);
+            value = getUnsignedInt32(MAIN_PROMPT);
             printf("The number of leading zeroes in %u is %u\n", value,count_leading_zeroes(&value));
         }
         break;
         case 2:
         {
-            value = getUnsignedInt(MAIN_PROMPT);
+            value = getUnsignedInt32(MAIN_PROMPT);
             printf("Endian swap of %u gives %u\n", value, EndianSwap(&value));
         }
         break;
         case 3:
         {
-            value = getUnsignedInt(MAIN_PROMPT);
+            value = getUnsignedInt32(MAIN_PROMPT);
             uint32_t value2 = 32;
             while (value2 < 0 || value2 > 31)
             {
-                value2 = getUnsignedInt(ROTATE_RIGHT_PROMPT);
+                value2 = getUnsignedInt32(ROTATE_RIGHT_PROMPT);
             }
             printf("%u rotated by %u position is: %u\n", value,value2,RotateRight(&value,&value2));
         }
         break;
         case 4:
         {
-            value = getUnsignedInt(MAIN_PROMPT);
+            value = getUnsignedInt32(MAIN_PROMPT);
             printf("Parity of %u is %u\n", value,Parity(&value));
         }
         break;
